@@ -1,0 +1,27 @@
+<div data-ng-if="!connect">
+  <button class="btn btn-error" data-ng-click="connectSC()">Connect Soundcloud</button>
+</div>
+
+
+<div data-ng-if="connect">
+  <p data-ng-click="logout()"><a href="#/">Logout</a></p>
+  <p>Welcome {{ userInfo.firstName }}</p>
+  <div>
+    <img data-ng-src="{{ userInfo.avatar_url }}" alt="" width="100">
+  </div>
+  <p>Description {{ userInfo.description }}</p>
+  <p>Country: {{ userInfo.country }}</p>
+  <p>Website: {{ userInfo.website }}</p>
+  <p>City: {{ userInfo.city }}</p>
+  <p>Following: {{ userInfo.followings_count }}</p>
+  <p>Follower: {{ userInfo.followers_count }}</p>
+  <p>Favorite songs {{ userInfo.public_favorites_count }}</p>
+  
+  <div>
+    <ul>
+      <li data-ng-repeat="like in likes">
+        <span> {{ like.title }} </span>
+      </li>
+    </ul>
+  </div>
+</div>
