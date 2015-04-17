@@ -20,7 +20,17 @@
   <div>
     <ul>
       <li data-ng-repeat="like in likes">
-        <span> {{ like.title }} </span>
+        <div plangular="{{like.permalink_url}}">
+          <img ng-src="{{ like.artwork_url  }}" alt="{{ like.title }}" />
+          <p>{{ like.user.username }} - {{ like.title }}</p>
+          <button class="btn" ng-click="play()">Play</button>
+          <button class="btn" ng-click="pause()">Pause</button>
+          <small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
+          <progress ng-value="currentTime / duration || 0" ng-click="seek($event)">
+            {{ currentTime / duration || 0 }}
+          </progress>
+          <img ng-src="{{ like.waveform_url }}" alt="waveform" />
+        </div>
       </li>
     </ul>
   </div>

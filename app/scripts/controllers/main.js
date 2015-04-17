@@ -10,15 +10,15 @@
 angular.module('libelikeApp')
   .controller('MainCtrl', function ($scope, localStorageService, soundcloud) {
 
-    $scope.connect = false;
-
     // Check if user data is stocked into a locastorage
 
     if(localStorageService.get('connectionStatus') === 'true') {
       $scope.connect = true;
       $scope.userInfo = localStorageService.get('userInfo');
       $scope.likes = localStorageService.get('userLikes');
-    } 
+    } else {
+      $scope.connect = false;
+    }
 
     $scope.connectSC = function () {
       soundcloud.connect().then(function(userInfo){

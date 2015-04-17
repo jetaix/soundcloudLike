@@ -33,8 +33,9 @@ angular.module('libelikeApp')
     this.getUserLike = function (userId) {
       var deferredLike = $q.defer();
 
-      SC.get('/users/'+userId+'/favorites', function(like) {
-        deferredLike.resolve(like);
+      SC.get('/users/'+userId+'/favorites', function(likes) {
+        deferredLike.resolve(likes);
+        console.log(likes);
       });
 
       return deferredLike.promise;

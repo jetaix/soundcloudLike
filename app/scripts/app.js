@@ -16,9 +16,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'plangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, plangularConfigProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -30,4 +31,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+    plangularConfigProvider.clientId = '18aac409b20d5c245f44a29c6df94f01';
   });
