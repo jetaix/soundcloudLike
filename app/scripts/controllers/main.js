@@ -45,4 +45,8 @@ angular.module('libelikeApp')
       localStorageService.remove('userLikes');
     };
 
+    $scope.next = function() {
+      
+    };
+
   });

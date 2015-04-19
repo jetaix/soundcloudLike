@@ -1,5 +1,19 @@
-<div data-ng-if="!connect">
-  <button class="btn btn-error" data-ng-click="connectSC()">Connect Soundcloud</button>
+<div id="disconnect" data-ng-if="!connect">
+  <div class="container">
+    <div>
+      <div>
+        <div>
+          <h1>Search your favorite SoundCloud like's <br /> has never been easier</h1>
+          <button
+            class="btn"
+            data-ng-click="connectSC()">SoundCloud connect
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 
@@ -19,17 +33,16 @@
   
   <div>
     <ul>
-      <li data-ng-repeat="like in likes">
+      <li data-ng-repeat="like in likes" data-index="{{$index}}">
         <div plangular="{{like.permalink_url}}">
-          <img ng-src="{{ like.artwork_url  }}" alt="{{ like.title }}" />
+          <img data-ng-src="{{ like.artwork_url  }}" alt="{{ like.title }}" />
           <p>{{ like.user.username }} - {{ like.title }}</p>
-          <button class="btn" ng-click="play()">Play</button>
-          <button class="btn" ng-click="pause()">Pause</button>
+          <button class="btn" data-ng-click="playPause($index)">Play/Pause</button>
           <small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
-          <progress ng-value="currentTime / duration || 0" ng-click="seek($event)">
+          <progress data-ng-value="currentTime / duration || 0" data-ng-click="seek($event)">
             {{ currentTime / duration || 0 }}
           </progress>
-          <img ng-src="{{ like.waveform_url }}" alt="waveform" />
+          <img data-ng-src="{{ like.waveform_url }}" alt="waveform" width="400" />
         </div>
       </li>
     </ul>
