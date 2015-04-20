@@ -11,6 +11,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+i {
+  font-family: 'FontAwesome';
+}
+
 #disconnect {
   background-image: url(/images/bg-home.jpg);
   background-size: cover;
@@ -46,10 +50,10 @@ body {
 #disconnect .container button {
   background-color: #e67e22;
   border: 2px solid #e67e22;
-  height: 60px;
+  height: 40px;
   padding: 0 40px;
 
-  line-height: 40px;
+  line-height: 20px;
   font-weight: 500;
   font-size: 17px;
 
@@ -68,6 +72,19 @@ body {
   outline: none;
   color: #fff;
 }
+
+
+#disconnect .container button i {
+  color: #fff;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+
+#disconnect .container button:hover i {
+  color: #e67e22;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
